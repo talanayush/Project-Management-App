@@ -19,8 +19,7 @@ export default function Home({headp,namig}) {
   function handleToggel(){
     setProject(prevProject=>!prevProject);
   }
-  function handleProject(name){
-    setNaming(name);
+  function handleProject(){
     handleToggel();
   }
   
@@ -28,12 +27,12 @@ export default function Home({headp,namig}) {
     <>
 
       <div className="flex">
-        <Sidebar tasks={task} tasking={handleTask} handleProject={handleProject} />
+        <Sidebar tasks={task} tasking={handleTask} handleProject={handleProject} fname={setNaming} />
 
         {task.length==0 ? (
-          <NoProject disp={isProject} tasks={handleTask} headp={headp} namig={namig} />
+          <NoProject disp={isProject} tasks={handleTask} headp={headp} namig={naming} />
         ) : (
-          <ProjectInfo disp={setHandler} tasks={task} Key={namig} headp={headp} />
+          <ProjectInfo disp={setHandler} tasks={task} Key={naming} headp={headp} />
         )}
         
       </div>
